@@ -1,5 +1,5 @@
 import java.util.Arrays;
-public class myVector<T> {
+public class myVector {
 
     private int size = 0;
     private int max_size;
@@ -19,7 +19,7 @@ public class myVector<T> {
     public void adding_to_end(double element) {
         try {
             if (size < max_size && size != 0) {
-                arr[size + 1] = element;
+                arr[size] = element;
                 size++;
             } else if (size == 0) {
                 arr[size] = element;
@@ -36,6 +36,12 @@ public class myVector<T> {
             System.out.print("Invalid value sent");
         }
     }
+    public  void copy_arr(myVector original){
+        max_size = original.max_size;
+        arr = Arrays.copyOf(arr, max_size);
+        arr = original.arr;
+        size = original.size;
+    }
     public void del_to_end(){
         try {
             arr[size] = 0;
@@ -48,7 +54,7 @@ public class myVector<T> {
         try {
             if(index == 0){
                 arr = Arrays.copyOfRange(arr,1,max_size);
-            }else if(index < size && index != (max_size - 1)) {
+            }else if(index <= size && index != (max_size - 1)) {
                 double[] arr_2 = Arrays.copyOfRange(arr, 0, index);
                 double[] arr_3 = Arrays.copyOfRange(arr,index + 1 , max_size );
                 arr = Arrays.copyOf(arr_2,max_size);
@@ -89,6 +95,7 @@ public class myVector<T> {
     }
     public void clear_arr(){
         Arrays.fill(arr, 0);
+        size = 0;
     }
     public int getSize(){
         return size;
