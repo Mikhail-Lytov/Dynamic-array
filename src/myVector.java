@@ -37,10 +37,16 @@ public class myVector {
         }
     }
     public  void copy_arr(myVector original){
-        max_size = original.max_size;
-        arr = Arrays.copyOf(arr, max_size);
-        arr = original.arr;
-        size = original.size;
+        try {
+            max_size = original.max_size;
+            arr = Arrays.copyOf(arr, max_size);
+            arr = original.arr;
+            size = original.size;
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.print("index error in the array");
+        }catch (ArrayStoreException e){
+            System.out.print("Invalid value sent");
+        }
     }
     public void del_to_end(){
         try {
@@ -90,8 +96,14 @@ public class myVector {
         }
     }
     public void change_arr(int max_size){
-        arr = Arrays.copyOf(arr,max_size);
-        this.max_size = max_size;
+        try {
+            arr = Arrays.copyOf(arr, max_size);
+            this.max_size = max_size;
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.print("index error in the array");
+        }catch (ArrayStoreException e) {
+            System.out.print("Invalid value sent");
+        }
     }
     public void clear_arr(){
         Arrays.fill(arr, 0);
@@ -109,7 +121,7 @@ public class myVector {
     }
 
 
-    
+
 
 }
 
