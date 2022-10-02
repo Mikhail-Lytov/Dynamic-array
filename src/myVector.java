@@ -5,8 +5,12 @@ public class myVector {
     private int max_size;
     public double[] arr = new double[1];
     public myVector(int max_size){
-        this.max_size = max_size;
-        arr = Arrays.copyOf(arr, max_size);
+        this.max_size = max_size * 2 + 10;
+        this.arr = Arrays.copyOf(arr, max_size);
+    }
+    public myVector(double[] arr){
+        max_size = arr.length * 2 + 10;
+        this.arr = Arrays.copyOf(arr,max_size);
     }
     public myVector(){
         try {
