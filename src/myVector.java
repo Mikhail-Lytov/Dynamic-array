@@ -54,8 +54,10 @@ public class myVector {
     }
     public void del_to_end(){
         try {
-            arr[size] = 0;
-            size--;
+            if(size != 0) {
+                arr[size - 1] = 0;
+                size--;
+            }
         }catch (ArrayIndexOutOfBoundsException e){
             System.out.print("index error in the array");
         }
